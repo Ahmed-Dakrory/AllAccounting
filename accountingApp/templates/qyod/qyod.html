@@ -1,0 +1,543 @@
+
+
+{% extends 'accountingmainTemplate.html' %}
+{%load static%}
+
+{% block ExtraimportsData %}
+      
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+  
+
+  <!-- Material Design Bootstrap -->
+  
+  <link rel="stylesheet" type="text/css" href="{% static 'css/mdb.min.css' %}">
+  <style>
+
+    
+  </style>
+{% endblock %}
+
+
+{% block content %}
+<div class="p-5">
+    <div class="row p-3 mb-2 bg-secondary text-white">
+        <h4>الحسابات العامة</h4>
+
+    </div>
+
+    <form  method="POST" id="form" class="needs-validation form-horizontal" novalidate>
+      {% csrf_token %}
+      <div class="row">
+        
+        
+          <div class="col-md-3 bg-white">
+          
+            <div class="treeview-animated w-20 border mx-4 my-4">
+              <h6 class="pt-3 pl-3 bg-secondary pb-3" style="color:white;">الدليل المحاسبى للمدفوعات</h6>
+            
+              <ul class="treeview-animated-list mb-3"  style=" height: 250px; overflow: overlay; ">
+                <li class="treeview-animated-items">
+                  <a class="closed">
+                    <i class="fas fa-angle-right"></i>
+                    <span>مصروفات ادارية</span>
+                  </a>
+                  <ul class="nested">
+                    <li>
+                      <div class="treeview-animated-element">أجور ومرتبات</div>
+                    </li>
+                    <li>
+                      <div class="treeview-animated-element">ايجار وكهرباء ومياه</div>
+                    </li>
+                    <li>
+                      <div class="treeview-animated-element">بريد وتليفون</div>
+                    </li>
+                    <li class="treeview-animated-items">
+                      <a class="closed">
+                        <i class="fas fa-angle-right"></i>
+                        <span>سيارات</span>
+                      </a>
+                      <ul class="nested">
+                        <li>
+                          <div class="treeview-animated-element">قطع غيار</div>
+                        </li>
+                        <li>
+                          <div class="treeview-animated-element">استهلاكات</div>
+                        </li>
+                        <li>
+                          <div class="treeview-animated-element">مصروفات أخرى</div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              
+              </ul>
+            </div>
+
+
+            <div class="treeview-animated w-20 border mx-4 my-4">
+              <h6 class="pt-3 pl-3 bg-secondary pb-3" style="color:white;">الدليل المحاسبى للمقبوضات</h6>
+            
+              <ul class="treeview-animated-list mb-3"  style=" height: 250px; overflow: overlay; ">
+                <li class="treeview-animated-items">
+                  <a class="closed">
+                    <i class="fas fa-angle-right"></i>
+                    <span>مقبوضات</span>
+                  </a>
+                  <ul class="nested">
+                    <li>
+                      <div class="treeview-animated-element">أجور ومرتبات</div>
+                    </li>
+                    <li>
+                      <div class="treeview-animated-element">ايجار وكهرباء ومياه</div>
+                    </li>
+                    <li>
+                      <div class="treeview-animated-element">بريد وتليفون</div>
+                    </li>
+                    <li class="treeview-animated-items">
+                      <a class="closed">
+                        <i class="fas fa-angle-right"></i>
+                        <span>سيارات</span>
+                      </a>
+                      <ul class="nested">
+                        <li>
+                          <div class="treeview-animated-element">قطع غيار</div>
+                        </li>
+                        <li>
+                          <div class="treeview-animated-element">استهلاكات</div>
+                        </li>
+                        <li>
+                          <div class="treeview-animated-element">مصروفات أخرى</div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="treeview-animated-items">
+                  <a class="closed">
+                    <i class="fas fa-angle-right"></i>
+                    <span>مدفوعات</span>
+                  </a>
+                  <ul class="nested">
+                    <li>
+                      <div class="treeview-animated-element">أجور ومرتبات</div>
+                    </li>
+                    <li>
+                      <div class="treeview-animated-element">ايجار وكهرباء ومياه</div>
+                    </li>
+                    <li>
+                      <div class="treeview-animated-element">بريد وتليفون</div>
+                    </li>
+                    <li class="treeview-animated-items">
+                      <a class="closed">
+                        <i class="fas fa-angle-right"></i>
+                        <span>سيارات</span>
+                      </a>
+                      <ul class="nested">
+                        <li>
+                          <div class="treeview-animated-element">قطع غيار</div>
+                        </li>
+                        <li>
+                          <div class="treeview-animated-element">استهلاكات</div>
+                        </li>
+                        <li>
+                          <div class="treeview-animated-element">مصروفات أخرى</div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="treeview-animated-items">
+                  <a class="closed">
+                    <i class="fas fa-angle-right"></i>
+                    <span>أصول</span>
+                  </a>
+                  <ul class="nested">
+                    <li>
+                      <div class="treeview-animated-element">أجور ومرتبات</div>
+                    </li>
+                    <li>
+                      <div class="treeview-animated-element">ايجار وكهرباء ومياه</div>
+                    </li>
+                    <li>
+                      <div class="treeview-animated-element">بريد وتليفون</div>
+                    </li>
+                    <li class="treeview-animated-items">
+                      <a class="closed">
+                        <i class="fas fa-angle-right"></i>
+                        <span>سيارات</span>
+                      </a>
+                      <ul class="nested">
+                        <li>
+                          <div class="treeview-animated-element">قطع غيار</div>
+                        </li>
+                        <li>
+                          <div class="treeview-animated-element">استهلاكات</div>
+                        </li>
+                        <li>
+                          <div class="treeview-animated-element">مصروفات أخرى</div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="treeview-animated-items">
+                  <a class="closed">
+                    <i class="fas fa-angle-right"></i>
+                    <span>الخصوم</span>
+                  </a>
+                  <ul class="nested">
+                    <li>
+                      <div class="treeview-animated-element">أجور ومرتبات</div>
+                    </li>
+                    <li>
+                      <div class="treeview-animated-element">ايجار وكهرباء ومياه</div>
+                    </li>
+                    <li>
+                      <div class="treeview-animated-element">بريد وتليفون</div>
+                    </li>
+                    <li class="treeview-animated-items">
+                      <a class="closed">
+                        <i class="fas fa-angle-right"></i>
+                        <span>سيارات</span>
+                      </a>
+                      <ul class="nested">
+                        <li>
+                          <div class="treeview-animated-element">قطع غيار</div>
+                        </li>
+                        <li>
+                          <div class="treeview-animated-element">استهلاكات</div>
+                        </li>
+                        <li>
+                          <div class="treeview-animated-element">مصروفات أخرى</div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              
+                <li class="treeview-animated-items">
+                  <a class="closed">
+                    <i class="fas fa-angle-right"></i>
+                    <span>حسابات تحت التسوية</span>
+                  </a>
+                  <ul class="nested">
+                    <li>
+                      <div class="treeview-animated-element">أجور ومرتبات</div>
+                    </li>
+                    <li>
+                      <div class="treeview-animated-element">ايجار وكهرباء ومياه</div>
+                    </li>
+                    <li>
+                      <div class="treeview-animated-element">بريد وتليفون</div>
+                    </li>
+                    <li class="treeview-animated-items">
+                      <a class="closed">
+                        <i class="fas fa-angle-right"></i>
+                        <span>سيارات</span>
+                      </a>
+                      <ul class="nested">
+                        <li>
+                          <div class="treeview-animated-element">قطع غيار</div>
+                        </li>
+                        <li>
+                          <div class="treeview-animated-element">استهلاكات</div>
+                        </li>
+                        <li>
+                          <div class="treeview-animated-element">مصروفات أخرى</div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+
+              </ul>
+            </div>
+
+                        
+          </div>
+          
+          <div class="col-md-8">
+            <div class="container mt-4">
+              
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link active" id="enter-tab" data-toggle="tab" href="#enter" role="tab" aria-controls="enter" aria-selected="true">الأدخال</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" id="view-tab" data-toggle="tab" href="#view" role="tab" aria-controls="view" aria-selected="false">العرض</a>
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active border p-3" id="enter" role="tabpanel" aria-labelledby="enter-tab" style="direction: rtl;">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group bmd-form-group text-right mt-3">
+                        <label for="date" class="text-right">التاريخ</label>
+                        <input type="text" required="" type="text" class="w-50 required" name="date" id="date" >
+                        <div class="invalid-feedback">
+                          برجاء ادخال التاريخ
+                        </div>  
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group bmd-form-group text-right mt-3">
+                        <label for="id" class="text-right">رقم القيد</label>
+                        <input type="text"  type="text" class="w-50 required" name="id" id="id" >
+                        
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group bmd-form-group text-right">
+                        <label for="docNumber" class="text-right">رقم المستند</label>
+                        <input type="text" required="" type="text" class="w-50 required" name="docNumber" id="docNumber" >
+                        <div class="invalid-feedback">
+                          برجاء ادخال رقم المستند
+                        </div>  
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group bmd-form-group text-right">
+                        <label for="checkNumber" class="text-right">رقم الشيك</label>
+                        <input type="text"  type="text" class="w-50 required" name="checkNumber" id="checkNumber" >
+                        
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group bmd-form-group text-right">
+                        <input  type="checkbox"   name="transfer" id="transfer" >
+                        <label for="transfer" class=" text-right">عملة</label>
+                         
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group bmd-form-group">
+                        <label for="notes" class="w-100 text-right">البيان</label>
+                        <textarea rows="3" maxlength="400"  class="form-control required" name="notes" id="notes" ></textarea> 
+                      </div>
+                    </div>
+
+                    
+                  </div>
+
+                  <div class="row">
+                    <div class="w-100 border rounded mr-5 ml-5" style="height: 170px; overflow: auto; ">
+                      <table class="table table-sm" style="text-align: right;">
+                        <thead style="background: #acb0b4;">
+                          <tr>
+                            <th scope="col">اسم الحساب</th>
+                            <th scope="col">ملاحظة</th>
+                            <th scope="col">المبلغ</th>
+                            <th scope="col">العملة</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
+                              <input type="text" class="w-100"  style="background: #acb0b4;"  value="صيانة اصلاح">
+                            </td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                          </tr>
+                          <tr>
+                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
+                              <input type="text" class="w-100"  style="background: #acb0b4;"  value="ايجار">
+                            </td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                          </tr>
+
+                          <tr>
+                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
+                              <input type="text" class="w-100"  style="background: #acb0b4;"  value="مياه">
+                            </td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                          </tr>
+
+                          <tr>
+                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
+                              <input type="text" class="w-100"  style="background: #acb0b4;"  value="كهرباء">
+                            </td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                          </tr>
+
+                          <tr>
+                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
+                              <input type="text" class="w-100"  style="background: #acb0b4;" value="اكراميات">
+                            </td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                          </tr>
+
+                          <tr>
+                            <td  style="background: #acb0b4;  padding: 0; margin: 0;"><input type="text" class="w-100"  style="background: #acb0b4;"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div class="mt-3 ml-3 row">
+                    <div class="col-md-7"></div>
+                    <div class="col-md-5">
+                      <div class="form-group bmd-form-group text-left">
+                        <label for="totalEnter" class="text-right">الاجمالى</label>
+                        <input type="text" required="" type="text" class="w-50 required" name="totalEnter" id="totalEnter" >
+                        <div class="invalid-feedback">
+                          برجاء ادخال الاجمالى 
+                        </div>  
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                  <div class="row mt-3">
+                    <div class="w-100 border rounded mr-5 ml-5" style="height: 170px; overflow: auto; ">
+                      <table class="table table-sm" style="text-align: right;">
+                        <thead style="background: #acb0b4;">
+                          <tr>
+                            <th scope="col">اسم الحساب</th>
+                            <th scope="col">ملاحظة</th>
+                            <th scope="col">المبلغ</th>
+                            <th scope="col">العملة</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
+                              <input type="text" class="w-100"  style="background: #acb0b4;"  value="صيانة اصلاح">
+                            </td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                          </tr>
+                          <tr>
+                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
+                              <input type="text" class="w-100"  style="background: #acb0b4;"  value="ايجار">
+                            </td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                          </tr>
+
+                          <tr>
+                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
+                              <input type="text" class="w-100"  style="background: #acb0b4;"  value="مياه">
+                            </td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                          </tr>
+
+                          <tr>
+                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
+                              <input type="text" class="w-100"  style="background: #acb0b4;"  value="كهرباء">
+                            </td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                          </tr>
+
+                          <tr>
+                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
+                              <input type="text" class="w-100"  style="background: #acb0b4;" value="اكراميات">
+                            </td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                          </tr>
+
+                          <tr>
+                            <td  style="background: #acb0b4;  padding: 0; margin: 0;"><input type="text" class="w-100"  style="background: #acb0b4;"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div class="mt-3 ml-3 row">
+                    <div class="col-md-7"></div>
+                    <div class="col-md-5">
+                      <div class="form-group bmd-form-group text-left">
+                        <label for="totalout" class="text-right">الاجمالى</label>
+                        <input type="text" required="" type="text" class="w-50 required" name="totalout" id="totalout" >
+                        <div class="invalid-feedback">
+                          برجاء ادخال الاجمالى 
+                        </div>  
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="view" role="tabpanel" aria-labelledby="view-tab">
+                  
+                  profile
+                </div>
+              </div>
+            </div>           
+          </div>
+
+      </div>
+    </form>
+</div>
+
+
+{% endblock %}
+
+{% block Extrajavascripts %}
+
+
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
+
+<script>
+
+// Treeview Initialization
+$(document).ready(function() {
+  $('.treeview-animated').mdbTreeview();
+});
+
+</script>
+
+
+{% endblock %}

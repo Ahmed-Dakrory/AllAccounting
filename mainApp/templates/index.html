@@ -1,0 +1,183 @@
+{% extends 'mainTemplate.html' %}
+{%load static%}
+{% block content %}
+<div class="p-5">
+    <div class="row p-3 mb-2 bg-secondary text-white">
+        <h4>الحسابات العامة</h4>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <img src="/static/imgs/main.png" alt="Scanfcode" class="bg-white" style="width: 100%;">
+        </div>
+       
+        <!-- <div class="col-md-6 bg-secondary">
+            <div class="row m-2 text-center" style="font-size: 20px;background: #c0bbb3;padding-top: 6px;border-radius: 10px;direction: rtl;">
+                <div class="form-check col-md-4 text-right">
+                    <input type="radio" name="options" id="calculations" value="1" checked>
+                    <label for="calculations">
+                      الحسابات
+                    </label>
+                </div>
+
+
+                  <div class="form-check col-md-4 text-right">
+                    <input type="radio" name="options" id="destroy" value="2" >
+                    <label for="destroy">
+                        اهلاك واحتياطى
+                    </label>
+                </div>
+
+                  <div class="form-check col-md-4 text-right">
+                    <input type="radio" name="options" id="ends" value="3" >
+                    <label for="ends">
+                      ختاميات
+                    </label>
+                  </div>
+            </div>
+
+            <div class="row m-2 text-center" style="font-size: 20px;background: #c0bbb3;padding-top: 6px;border-radius: 10px;direction: rtl;">
+                <div class="form-check col-md-4 text-right">
+                    <input type="radio" name="dalel" id="dalel" value="1" checked>
+                    <label for="dalel">
+                      الدليل
+                    </label>
+                </div>
+
+
+                  <div class="form-check col-md-4 text-right">
+                    <input type="radio" name="dalel" id="arseda" value="2" >
+                    <label for="arseda">
+                        أرصدة افتتاحية
+                    </label>
+                </div>
+
+                  
+            </div>
+
+            <div class="row m-2 text-center" style="font-size: 20px;background: #c0bbb3;padding-top: 6px;border-radius: 10px;direction: rtl;">
+                <div class="form-check col-md-4 text-right">
+                    <input type="radio" name="qyod" id="qyod" value="1" checked>
+                    <label for="qyod">
+                      قيود يومية
+                    </label>
+                </div>
+
+
+                  <div class="form-check col-md-4 text-right">
+                    <input type="radio" name="qyod" id="qyodUSA" value="2" >
+                    <label for="qyodUSA">
+                        يومية أمريكية
+                    </label>
+                </div>
+
+                  <div class="form-check col-md-4 text-right">
+                    <input type="radio" name="qyod" id="qyodReport" value="3" >
+                    <label for="qyodReport">
+                      تقارير
+                    </label>
+                  </div>
+            </div>
+
+
+            <div class="row m-2 text-center" style="font-size: 20px;background: #c0bbb3;padding-top: 6px;border-radius: 10px;direction: rtl;">
+                <div class="form-check col-md-4 text-right">
+                    <input type="radio" name="tarhel" id="tarhel" value="1" checked>
+                    <label for="tarhel">
+                      ترحيل
+                    </label>
+                </div>
+
+
+                  <div class="form-check col-md-4 text-right">
+                    <input type="radio" name="tarhel" id="tarhelCancel" value="2" >
+                    <label for="tarhelCancel">
+                        الغاء الترحيل
+                    </label>
+                </div>
+
+                 
+            </div>
+
+
+            <div class="row m-2 text-center" style="font-size: 20px;background: #c0bbb3;padding-top: 6px;border-radius: 10px;direction: rtl;">
+                <div class="form-check col-md-4 text-right">
+                    <input type="radio" name="report" id="report" value="1" checked>
+                    <label for="report">
+                      الدليل المحاسبى
+                    </label>
+                </div>
+
+
+                  <div class="form-check col-md-4 text-right">
+                    <input type="radio" name="report" id="reportdaily" value="2" >
+                    <label for="reportdaily">
+                        قيود يومية
+                    </label>
+                </div>
+
+                  <div class="form-check col-md-4 text-right">
+                    <input type="radio" name="report" id="reportEsnad" value="3" >
+                    <label for="reportEsnad">
+                      الأسناد
+                    </label>
+                  </div>
+            </div>
+
+
+            <div class="row m-2 text-center" style="font-size: 20px;background: #c0bbb3;padding-top: 6px;border-radius: 10px;direction: rtl;">
+                <div class="form-check col-md-4 text-right">
+                    <input type="radio" name="EndReport" id="EndReport" value="1" checked>
+                    <label for="EndReport">
+                      مقبوضات ومدفوعات
+                    </label>
+                </div>
+
+
+                  <div class="form-check col-md-4 text-right">
+                    <input type="radio" name="EndReport" id="EndReportdestroy" value="2" >
+                    <label for="EndReportdestroy">
+                        الأهلاكات
+                    </label>
+                </div>
+
+                  <div class="form-check col-md-4 text-right">
+                    <input type="radio" name="EndReport" id="EndReportbox" value="3" >
+                    <label for="EndReportbox">
+                      الميزانيات
+                    </label>
+                  </div>
+            </div>
+
+           
+
+            
+
+
+                               
+        </div>
+         -->
+        <div class="col-md-7">
+            <div class="row m-2">
+                <button class="boxButton" href="#">الاعداد</button>
+            </div>
+
+            <div class="row m-2">
+                <button class="boxButton" href="/{{LANGUAGE_CODE}}/accounting/">الحسابات العامة</button>
+            </div>
+
+            <div class="row m-2">
+                <button class="boxButton" href="#">الأشتراكات</button>
+            </div>
+
+           
+                               
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
