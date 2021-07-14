@@ -16,6 +16,8 @@
   <!-- Material Design Bootstrap -->
   
   <link rel="stylesheet" type="text/css" href="{% static 'css/mdb.min.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+
   <style>
 
     
@@ -35,12 +37,12 @@
       <div class="row">
         
         
-          <div class="col-md-3 bg-white">
+          <div class="col-md-5 bg-white">
           
-            <div class="treeview-animated w-20 border mx-4 my-4">
+            <div class="treeview-animated w-20 border mx-4 my-4 w-100">
               <h6 class="pt-3 pl-3 bg-secondary pb-3" style="color:white;">الدليل المحاسبى للمدفوعات</h6>
             
-              <ul class="treeview-animated-list mb-3"  style=" height: 250px; overflow: overlay; ">
+              <!-- <ul class="treeview-animated-list mb-3"  style=" height: 250px; overflow: overlay; ">
                 <li class="treeview-animated-items">
                   <a class="closed">
                     <i class="fas fa-angle-right"></i>
@@ -76,14 +78,20 @@
                   </ul>
                 </li>
               
-              </ul>
+              </ul> -->
+          
+          
+              <div id="madfo3at_tree"></div>
+
             </div>
 
 
-            <div class="treeview-animated w-20 border mx-4 my-4">
+            <div class="treeview-animated w-20 border mx-4 my-4 w-100">
               <h6 class="pt-3 pl-3 bg-secondary pb-3" style="color:white;">الدليل المحاسبى للمقبوضات</h6>
             
-              <ul class="treeview-animated-list mb-3"  style=" height: 250px; overflow: overlay; ">
+              
+              <div id="maqbodat_tree"></div>
+              <!-- <ul class="treeview-animated-list mb-3"  style=" height: 250px; overflow: overlay; ">
                 <li class="treeview-animated-items">
                   <a class="closed">
                     <i class="fas fa-angle-right"></i>
@@ -258,13 +266,13 @@
                 </li>
 
 
-              </ul>
+              </ul> -->
             </div>
 
                         
           </div>
           
-          <div class="col-md-8">
+          <div class="col-md-7">
             <div class="container mt-4">
               
               <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -529,6 +537,7 @@
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
 
 <script>
 
@@ -537,6 +546,115 @@ $(document).ready(function() {
   $('.treeview-animated').mdbTreeview();
 });
 
+
+$(function () { 
+  
+
+
+
+
+  $('#maqbodat_tree').jstree({
+  "core" : {
+    "animation" : 0,
+    "check_callback" : true,
+    "themes" : { "stripes" : true },
+    'data' : {
+      'url' : function (node) {
+        return '/{{LANGUAGE_CODE}}/accounting/treeOfMain';
+      },
+      'data' : function (node) {
+        return { 
+          'id' : node.id,
+          'Normal':node.id === '#' ?
+          '2' : '#'
+         };
+      }
+    }
+  },
+  "types" : {
+    // "#" : {
+    //   "max_children" : 1,
+    //   "max_depth" : 4,
+    //   "valid_children" : ["root"]
+    // },
+    // "root" : {
+    //   "icon" : "https://www.jstree.com/static/3.3.11/assets/images/tree_icon.png",
+    //   "valid_children" : ["default"]
+    // },
+    "default" : {
+      "valid_children" : ["default","file"]
+    },
+    "file" : {
+      "icon" : "glyphicon glyphicon-minus",
+      "valid_children" : []
+    }
+  },
+  // "plugins" : [
+  //   "contextmenu", "dnd", "search",
+  //   "state", "types", "wholerow"
+  // ]
+});
+
+
+
+$('#maqbodat_tree').on("changed.jstree", function (e, data) {
+  console.log(data.selected);
+});
+
+
+
+
+
+
+$('#madfo3at_tree').jstree({
+  "core" : {
+    "animation" : 0,
+    "check_callback" : true,
+    "themes" : { "stripes" : true },
+    'data' : {
+      'url' : function (node) {
+        return '/{{LANGUAGE_CODE}}/accounting/treeOfMain';
+      },
+      'data' : function (node) {
+        return { 
+          'id' : node.id,
+          'Normal':node.id === '#' ?
+          '1' : '#'
+         };
+      }
+    }
+  },
+  "types" : {
+    // "#" : {
+    //   "max_children" : 1,
+    //   "max_depth" : 4,
+    //   "valid_children" : ["root"]
+    // },
+    // "root" : {
+    //   "icon" : "https://www.jstree.com/static/3.3.11/assets/images/tree_icon.png",
+    //   "valid_children" : ["default"]
+    // },
+    "default" : {
+      "valid_children" : ["default","file"]
+    },
+    "file" : {
+      "icon" : "glyphicon glyphicon-minus",
+      "valid_children" : []
+    }
+  },
+  // "plugins" : [
+  //   "contextmenu", "dnd", "search",
+  //   "state", "types", "wholerow"
+  // ]
+});
+
+
+
+$('#madfo3at_tree').on("changed.jstree", function (e, data) {
+  console.log(data.selected);
+});
+
+  });
 </script>
 
 

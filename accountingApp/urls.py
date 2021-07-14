@@ -13,6 +13,9 @@ urlpatterns = [
     path('qyodUSA/',views.qyodUSA,name = 'qyodUSA'),
     path('qyodReport/',views.qyodReport,name = 'qyodReport'),
 
+    
+    path('treeOfMain/',views.treeOfMain,name = 'treeOfMain'),
+
 
 
     
