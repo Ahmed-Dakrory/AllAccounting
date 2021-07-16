@@ -58,7 +58,7 @@ def dalel(request):
             if accountNumber == '':
                 accountNumber = None
             typeData = request.POST['type']
-            if typeData=='0':
+            if typeData=='false':
                 typeData=False
             else:
                 typeData=True
@@ -72,7 +72,7 @@ def dalel(request):
             if accountNumber == '':
                 accountNumber = None
             typeData = request.POST['type']
-            if typeData=='0':
+            if typeData=='false':
                 typeData=False
             else:
                 typeData=True
