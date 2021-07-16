@@ -25,6 +25,7 @@ class acc_code(models.Model):
     Mem_Address =  models.TextField(default=None,null=True)
     Mem_Pay =  models.BooleanField(default=False,null=True)
     Mem_LDate =  models.CharField(max_length=500,default=None,null=True)
+    deleted =  models.BooleanField(default=False,null=True)
 
 
     class Meta:
@@ -33,13 +34,16 @@ class acc_code(models.Model):
 
     def element_to_json(self):
         return {
+            'accountNumber':self.id,
             'id' :"element"+str(self.id),
             'text' :self.Name,
             'Level':self.Level,
-            'type':"file",
+            'typeOfIcon':"file",
+            'type':self.Type,
             "children" : True,
             "Ekfal":self.Ekfal,
-            "Normal":self.Normal
+            "Normal":self.Normal,
+            "relatedToId":self.relatedToId
             }
 
     def __str__(self):

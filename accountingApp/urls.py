@@ -14,7 +14,14 @@ urlpatterns = [
     path('qyodReport/',views.qyodReport,name = 'qyodReport'),
 
     
+    path('dalel/',views.dalel,name = 'dalel'),
+    path('arseda/',views.arseda,name = 'arseda'),
+
+    
     path('treeOfMain/',views.treeOfMain,name = 'treeOfMain'),
+    path('treeOfMainAll/',views.treeOfMainAll,name = 'treeOfMainAll'),
+    path('delete_treeElement/',views.delete_treeElement,name = 'delete_treeElement'),
+    path('getElementParametersOfTree/',views.getElementParametersOfTree,name = 'getElementParametersOfTree'),
 
 
 

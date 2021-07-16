@@ -7,3 +7,15 @@
     background: darkgrey;
     border-radius: 6px;
 }
+
+
+#loadingImg {
+    width: 100%;
+    height: 91px;
+    position: fixed;
+    top: 39%;
+    background-image: url(https://i.stack.imgur.com/MnyxU.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 59px 59px;
+  }

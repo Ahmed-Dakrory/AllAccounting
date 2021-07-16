@@ -1,0 +1,501 @@
+
+
+{% extends 'accountingmainTemplate.html' %}
+{%load static%}
+
+{% block ExtraimportsData %}
+      
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+  
+
+  <!-- Material Design Bootstrap -->
+  
+  <link rel="stylesheet" type="text/css" href="{% static 'css/mdb.min.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+
+  <style>
+
+    
+  </style>
+{% endblock %}
+
+
+{% block content %}
+<div class="p-5">
+    <div class="row p-3 mb-2 bg-secondary text-white">
+        <h4>الدليل المحاسبى</h4>
+
+    </div>
+
+    <form  method="POST" id="form" class="needs-validation form-horizontal" novalidate>
+      {% csrf_token %}
+      <div class="row">
+        
+        
+        <input type="hidden" id="typeOfEdit" name="typeOfEdit" value="{{typeOfEdit}}">
+        <input type="hidden" id="LevelData" name="LevelData" value="{{LevelData}}">
+          
+          <div class="col-md-12">
+            <div class="container mt-4">
+              <div class="tab-pane fade show active border p-3" id="enter" role="tabpanel" aria-labelledby="enter-tab" style="direction: rtl;">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group bmd-form-group text-right mt-3">
+                      <label for="accountName" class="text-right">اسم الحساب</label>
+                      <input type="text" required="" type="text" class="w-50 required" name="accountName" id="accountName" >
+                      <div class="invalid-feedback">
+                        برجاء ادخال اسم الحساب
+                      </div>  
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group bmd-form-group text-right mt-3">
+                      <label for="accountNumber" class="text-right">رقم الحساب</label>
+                      <input type="text" disabled type="text" class="w-50 required" name="accountNumber" id="accountNumber" >
+                      
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group bmd-form-group text-right">
+                      <label for="mainAccount" class="text-right">الحساب الرئيسى</label>
+                      <input type="text" required="" disabled type="text" class="w-50 required" name="mainAccount" id="mainAccount" >
+                      <div class="invalid-feedback">
+                        برجاء ادخال الحساب الرئيسى 
+                      </div>  
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group bmd-form-group text-right">
+                      <label for="mainAccountNumber" class="text-right">رقم الحساب</label>
+                      <input type="text"  type="text" disabled class="w-50 required" name="mainAccountNumber" id="mainAccountNumber" >
+                      
+                    </div>
+                  </div>
+                </div>
+
+                <hr>
+                <div class="row">
+                  <div class="col-md-1"></div>
+                  <div class="col-md-10 bg-white w-100" style="direction: ltr;">
+          
+                    <div class="treeview-animated w-100 mt-1" style=" height: 200px; overflow: auto; background: #80808014; ">
+                     
+                      <div id="allTree"></div>
+        
+                    </div>
+                  </div>
+                  <div class="col-md-1"></div>
+                </div>
+
+
+              <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                  <div class="row m-2 text-center" style="font-size: 20px;background: #c0bbb3;padding-top: 6px;border-radius: 10px;direction: rtl;">
+                 
+                    <div class="form-check col-md-2 text-righttext-bold">
+  
+                      نوع الحساب
+                    </div>
+                   
+                    <div class="form-check col-md-2 text-right">
+                        <input type="radio" name="type" id="branch" value="true" checked>
+                        <label for="branch">
+                          فرعى 
+                        </label>
+                    </div>
+    
+    
+                      <div class="form-check col-md-2 text-right">
+                        <input type="radio" name="type" id="main" value="false" >
+                        <label for="main">
+                            رئيسى
+                        </label>
+                    </div>
+  
+                  </div>
+    
+  
+                  <div class="row m-2 text-center" style="font-size: 20px;background: #c0bbb3;padding-top: 6px;border-radius: 10px;direction: rtl;">
+                    
+                    <div class="form-check col-md-2 text-righttext-bold">
+  
+                      طبيعة الحساب
+                    </div>
+                  
+                    <div class="form-check col-md-2 text-right">
+                        <input type="radio" name="Normal" id="Normal0" value="0" checked>
+                        <label for="Normal0">
+                          مدين 
+                        </label>
+                    </div>
+  
+  
+                      <div class="form-check col-md-2 text-right">
+                        <input type="radio" name="Normal" id="Normal1" value="1" >
+                        <label for="Normal1">
+                            دائن
+                        </label>
+                    </div>
+  
+                      <div class="form-check col-md-2 text-right">
+                        <input type="radio" name="Normal" id="Normal2" value="2" >
+                        <label for="Normal2">
+                          مدين ودائن
+                        </label>
+                      </div>
+                  </div>
+  
+  
+                  <div class="row m-2 text-center" style="font-size: 20px;background: #c0bbb3;padding-top: 6px;border-radius: 10px;direction: rtl;">
+                      
+                    <div class="form-check col-md-2 text-righttext-bold">
+  
+                    اقفال الحساب
+                    </div>
+                  
+                    <div class="form-check col-md-2 text-right">
+                        <input type="radio" name="ekfal" id="ekfal0" value="0" checked>
+                        <label for="ekfal0">
+                          مقبوضات 
+                        </label>
+                    </div>
+  
+  
+                      <div class="form-check col-md-2 text-right">
+                        <input type="radio" name="ekfal" id="ekfal1" value="1" >
+                        <label for="ekfal1">
+                            مدفوعات
+                        </label>
+                    </div>
+  
+                    <div class="form-check col-md-2 text-right">
+                      <input type="radio" name="ekfal" id="ekfal2" value="2" >
+                      <label for="ekfal2">
+                        كلاهما
+                      </label>
+                    </div>
+  
+  
+                    <div class="form-check col-md-2 text-right">
+                      <input type="radio" name="ekfal" id="ekfal3" value="3" >
+                      <label for="ekfal3">
+                        أخرى
+                      </label>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-md-1"></div>
+
+              
+              </div>
+
+              <div class="row">
+                <div class="col-md-2">
+                  <button type="submit" class="btn btn-primary pull-right">حفظ</button>
+                </div>
+                <div class="col-md-2">
+                  <button type="button" class="btn btn-primary pull-right" onclick="askToDeleteItemWithId();">مسح</button>
+                </div>
+                <div class="col-md-2">
+                  <button type="button" class="btn btn-primary pull-right" onclick="addNew();">اضافة</button>
+                </div>
+                
+                
+              </div>
+              </div>
+            </div>           
+          </div>
+
+      </div>
+    </form>
+</div>
+
+
+{% endblock %}
+
+{% block Extrajavascripts %}
+
+
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+
+<script>
+
+
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+    form.addEventListener('submit', function(event) {
+    if (form.checkValidity() === false) {
+    event.preventDefault();
+    event.stopPropagation();
+    }
+    form.classList.add('was-validated');
+    }, false);
+    });
+    }, false);
+    })();
+
+
+
+
+// Treeview Initialization
+$(document).ready(function() {
+  $('.treeview-animated').mdbTreeview();
+});
+
+
+$(function () { 
+  
+
+
+
+
+  $('#allTree').jstree({
+  "core" : {
+    "animation" : 0,
+    "check_callback" : true,
+    "themes" : { "stripes" : true },
+    'data' : {
+      'url' : function (node) {
+        return '/{{LANGUAGE_CODE}}/accounting/treeOfMainAll';
+      },
+      'data' : function (node) {
+        return { 
+          'id' : node.id
+         };
+      }
+    }
+  },
+  "types" : {
+    // "#" : {
+    //   "max_children" : 1,
+    //   "max_depth" : 4,
+    //   "valid_children" : ["root"]
+    // },
+    // "root" : {
+    //   "icon" : "https://www.jstree.com/static/3.3.11/assets/images/tree_icon.png",
+    //   "valid_children" : ["default"]
+    // },
+    "default" : {
+      "valid_children" : ["default","file"]
+    },
+    "file" : {
+      "icon" : "glyphicon glyphicon-minus",
+      "valid_children" : []
+    }
+  },
+  // "plugins" : [
+  //   "contextmenu", "dnd", "search",
+  //   "state", "types", "wholerow"
+  // ]
+});
+
+
+
+$('#allTree').on("changed.jstree", function (e, data) {
+  // console.log(data.selected[0].slice(7, (data.selected[0]).length));
+
+
+  $.ajax({
+        url: "/{{LANGUAGE_CODE}}/accounting/getElementParametersOfTree/",
+        type: "post",
+        data: {
+          id:data.selected[0].slice(7, (data.selected[0]).length)
+        } ,
+        headers:{
+                "X-CSRFToken": csrftoken
+        }
+        ,
+        success: function (response) {
+          if(response.Result=="Ok"){
+            $("input[name=type]").prop('checked', false);
+            $("input[name=ekfal]").prop('checked', false);
+            $("input[name=Normal]").prop('checked', false);
+            $("input[name=type][value=" + response.output.type + "]").prop('checked', true);
+            $("input[name=ekfal][value=" + response.output.Ekfal + "]").prop('checked', true);
+            $("input[name=Normal][value=" + response.output.Normal + "]").prop('checked', true);
+
+
+            
+
+            $('#typeOfEdit').attr('value',"edit");
+            $("#typeOfEdit").val("edit");
+            
+            $('#accountName').attr('value',response.output.text);
+            $("#accountName").val(response.output.text);
+
+            
+            $('#LevelData').attr('value',response.output.Level);
+            $("#LevelData").val(response.output.Level);
+
+
+            
+            $('#accountNumber').attr('value',response.output.accountNumber);
+            $("#accountNumber").val(response.output.accountNumber);
+
+
+            if(response.output.relatedToId==null){
+              $('#mainAccount').attr('value',"");
+              $("#mainAccount").val("");
+
+            
+              $('#mainAccountNumber').attr('value',"");
+              $("#mainAccountNumber").val("");
+            }else{
+              $('#mainAccount').attr('value',response.output.relatedToId.text);
+              $("#mainAccount").val(response.output.relatedToId.text);
+
+              
+              $('#mainAccountNumber').attr('value',response.output.relatedToId.accountNumber);
+              $("#mainAccountNumber").val(response.output.relatedToId.accountNumber);
+            }
+            
+           
+            
+            console.log(response.output);
+            console.log(response.output.type," , "+response.output.Normal+" , "+response.output.Ekfal);
+          }
+          
+           // You will get response from your PHP page (what you echo or print)
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+           console.log(textStatus, errorThrown);
+        }
+    });
+
+
+});
+
+
+
+
+
+
+  });
+
+
+
+function addNew(){
+  
+            $('#typeOfEdit').attr('value',"new");
+            $("#typeOfEdit").val("new");
+            var forms = document.getElementsByClassName('needs-validation');
+            $('#form').submit();
+  
+            
+}
+  
+  function askToDeleteItemWithId(){
+    name = $("#accountName").val();
+    id  =  $("#accountNumber").val();
+    if($("#typeOfEdit").val()!="Nothing"){
+  Swal.fire({
+              title: '<strong>هل تريد مسح؟ </strong>',
+              icon: 'warning',
+              html:
+                '<div class="tD-responsive table-responsive">'+
+                '<table class="tD table">'+
+                    '<thead><tr><th colspan="2">بيانات العنصر المرد مسحه</th></tr></thead>'+
+                    '<tbody>'+
+                        '<tr>'+
+                            '<td width="20%"><strong>الأسم </strong></td>'+
+                            '<td>'+name+'</td>'+
+                        '</tr>'+
+                    '</tbody>'+
+                '</table>'+
+            '</div>',
+              showCloseButton: true,
+              showCancelButton: true,
+              focusConfirm: false,
+
+              confirmButtonText:'<i class="fa fa-trash"></i> مسح',
+              confirmButtonColor: '#d33',
+              confirmButtonAriaLabel: 'Thumbs up, great!',
+              cancelButtonText:'<i class="fa fa-times-circle-o"></i> اغلاق',
+              cancelButtonAriaLabel: 'Thumbs down'
+            }).then((result) => {
+              if (result.value) {
+
+
+                showLoader();
+                $.ajax({
+                  type: 'POST',
+                  url: '/{{LANGUAGE_CODE}}/accounting/delete_treeElement/',
+                  dataType: 'json',
+                  data: { 
+                      'id': id
+                  },
+                  headers:{
+                      "X-CSRFToken": csrftoken
+                          },
+                  cache: false,
+                  success: function(result) {
+                    hideLoader();
+                      if(result.Result == "Success"){
+                        Swal.fire(
+                          'تم',
+                          'تم المسح بنجاح',
+                          'نجح'
+                        ).then((result) => {
+                          if (result.value) {
+                        
+                        
+                           window.location.href ="/{{LANGUAGE_CODE}}/accounting/dalel/";
+                          }
+                        });
+                        }else{
+                          Swal.fire(
+                            'مشكلة',
+                            'حدثت مشكلة عند المسح',
+                            'مشكلة'
+                          )
+                        }
+                  
+                  },
+                  error: function (xhr, ajaxOptions, thrownError) {
+                  hideLoader();
+                  Swal.fire(
+                            'مشكلة',
+                            'حدثت مشكلة عند المسح',
+                            'مشكلة'
+                  )
+                  }
+              });
+
+                
+              }
+            });
+
+
+          }
+}
+
+
+hideLoader();
+</script>
+
+
+{% endblock %}
