@@ -22,6 +22,8 @@ urlpatterns = [
     path('treeOfMainAll/',views.treeOfMainAll,name = 'treeOfMainAll'),
     path('delete_treeElement/',views.delete_treeElement,name = 'delete_treeElement'),
     path('getElementParametersOfTree/',views.getElementParametersOfTree,name = 'getElementParametersOfTree'),
+    path('getAllElementsRelatedToTreeElementAndType/',views.getAllElementsRelatedToTreeElementAndType,name = 'getAllElementsRelatedToTreeElementAndType'),
+    path('getTransactionDetails/',views.getTransactionDetails,name = 'getTransactionDetails'),
 
 
 

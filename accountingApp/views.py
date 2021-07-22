@@ -27,7 +27,65 @@ def loadMainPageForaccounting(request):
 
 
 def qyod(request):
-    return render(request,'qyod/qyod.html',None)
+    if request.method=='POST':
+        madfo3at_idSelectedData = request.POST['madfo3at_idSelected']
+        maqbodat_idSelectedData = request.POST['maqbodat_idSelected']
+
+        
+        maqbodatData = acc_code.objects.get(pk=maqbodat_idSelectedData)
+        madfo3atData = acc_code.objects.get(pk=madfo3at_idSelectedData)
+
+        dateData = request.POST['date']
+        QyedData = request.POST['Qyed']
+        docNumberData = request.POST['docNumber']
+        checkNumberData = request.POST['checkNumber']
+        notesData = request.POST['notes']
+        totalEnterData = request.POST['totalEnter']
+        totaloutData = request.POST['totalout']
+
+
+        madfo3at_allLengthData = request.POST['madfo3at_allLength']
+        maqbodat_allLengthData = request.POST['maqbodat_allLength']
+
+        reqtransaction = transaction.objects.create(maqbodat=maqbodatData,madfo3at=madfo3atData,
+                        Doc_Number= docNumberData,Qyed_Number=QyedData,Check_Number=checkNumberData,
+                        Notes=notesData,maqbodat_Total=totaloutData,madfo3at_Total=totalEnterData)
+        reqtransaction.save()
+
+        for madfo3at_i in range(0,int(madfo3at_allLengthData)):
+            madfo3at_elementId = request.POST['madfo3ataccountDivLen_'+str(madfo3at_i)]
+            
+            madfo3at_elementData = acc_code.objects.get(pk=madfo3at_elementId)
+            madfo3at_accountNote = request.POST['accountNote_'+str(madfo3at_elementId)]
+            madfo3at_accountPrice = request.POST['accountPrice_'+str(madfo3at_elementId)]
+            madfo3at_accountCurrency = request.POST['accountCurrency_'+str(madfo3at_elementId)]
+
+            if madfo3at_accountPrice!='0':
+                acc_code_With_detailsToAdd = acc_code_With_details.objects.create(account=madfo3at_elementData, Type=True
+                            ,price=madfo3at_accountPrice,note=madfo3at_accountNote,currency=madfo3at_accountCurrency)
+                acc_code_With_detailsToAdd.save()
+                reqtransaction.acc_codes_With_details_madfo3at.add(acc_code_With_detailsToAdd)
+
+        for maqbodat_i in range(0,int(maqbodat_allLengthData)):
+            maqbodat_elementId = request.POST['maqbodataccountDivLen_'+str(maqbodat_i)]
+            
+            maqbodat_elementData = acc_code.objects.get(pk=maqbodat_elementId)
+            maqbodat_accountNote = request.POST['accountNote_'+str(maqbodat_elementId)]
+            maqbodat_accountPrice = request.POST['accountPrice_'+str(maqbodat_elementId)]
+            maqbodat_accountCurrency = request.POST['accountCurrency_'+str(maqbodat_elementId)]
+
+            if maqbodat_accountPrice!='0':
+                acc_code_With_detailsToAdd = acc_code_With_details.objects.create(account=maqbodat_elementData, Type=True
+                            ,price=maqbodat_accountPrice,note=maqbodat_accountNote,currency=maqbodat_accountCurrency)
+                acc_code_With_detailsToAdd.save()
+                reqtransaction.acc_codes_With_details_maqbodat.add(acc_code_With_detailsToAdd)
+
+    
+    allTransactions = transaction.objects.all()
+    context = {
+        'allTransactions':allTransactions
+    }
+    return render(request,'qyod/qyod.html',context)
 
 
 def qyodUSA(request):
@@ -101,11 +159,16 @@ def arseda(request):
 
 def treeOfMain(request):
     id=request.GET['id']
-    normal=request.GET['Normal']
+    treeType=request.GET['treeType']
+    print(treeType)
     if id=='#':
         allJson = []
-        allData = acc_code.objects.filter(Q(Level=1) & Q(Normal=normal) & Q(deleted=False))
-
+        allData = None
+        if treeType=='0':
+            allData = acc_code.objects.filter(Q(Level=1) & (Q(Ekfal=0) |Q(Ekfal=2) |Q(Ekfal=3) ) & Q(deleted=False))
+        elif treeType == '1':
+            allData = acc_code.objects.filter(Q(Level=1) & (Q(Ekfal=1) |Q(Ekfal=2) |Q(Ekfal=3) ) & Q(deleted=False))
+            
         listResult=list(allData)
         for result in listResult:
             allJson.append(result.element_to_json())
@@ -196,3 +259,56 @@ def getElementParametersOfTree(request):
     else:
         allData['Result'] = "Fail"
         return JsonResponse(allData, safe=False)
+
+
+def getTransactionDetails(request):
+    id=request.POST['id']
+    allData = transaction.objects.get(id=id)
+    allJson = {}
+    allJson['Result'] = "Fail"
+    if allData !=None:
+        allJson['Data'] = allData.to_json()
+           
+
+    # print(allJson)
+    if allJson != None:
+        allJson['Result'] = "Ok"
+        return JsonResponse(allJson, safe=False)
+    else:
+        allJson['Result'] = "Fail"
+        return JsonResponse(allJson, safe=False)
+
+
+def getAllElementsRelatedToTreeElementAndType(request):
+    id=request.POST['id']
+    typeOfTree=request.POST['Type']
+    if typeOfTree=='0':
+        typeOfTree=False
+    elif typeOfTree == '1':
+        typeOfTree=True
+    
+    Data = acc_code.objects.filter(Q(relatedToId=id) & Q(Type = typeOfTree))
+
+    allData = {}
+    if Data !=None:
+        array = []
+        for item in list(Data):
+            DataReg=item.element_to_json()
+            array.append(DataReg)
+        allData['length'] = len(array)
+        allData['output'] = array
+    else:
+        
+        allData['length'] = 0
+        allData['output'] = None
+    
+    allData['Result'] = "Ok"
+    if allData != None:
+        return JsonResponse(allData, safe=False)
+    else:
+        allData['Result'] = "Fail"
+        return JsonResponse(allData, safe=False)
+
+
+
+

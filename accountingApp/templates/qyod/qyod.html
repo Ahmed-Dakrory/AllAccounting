@@ -37,7 +37,7 @@
       <div class="row">
         
         
-          <div class="col-md-5 bg-white">
+          <div class="col-md-5 bg-white" style=" height: 890px; overflow: auto; ">
           
             <div class="treeview-animated w-20 border mx-4 my-4 w-100">
               <h6 class="pt-3 pl-3 bg-secondary pb-3" style="color:white;">الدليل المحاسبى للمدفوعات</h6>
@@ -82,7 +82,7 @@
           
           
               <div id="madfo3at_tree"></div>
-
+ 
             </div>
 
 
@@ -286,6 +286,28 @@
               <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active border p-3" id="enter" role="tabpanel" aria-labelledby="enter-tab" style="direction: rtl;">
                   <div class="row">
+                    <div class="form-group bmd-form-group text-center col-md-6 " >
+                      <input  required="" id="madfo3at_idSelected"  name="madfo3at_idSelected" class="w-50 required d-none">
+                      <div class="invalid-feedback">
+                        برجاء اختيار أحد المدفوعات
+                      </div>  
+                    </div>
+
+
+                    <div class="form-group bmd-form-group text-center col-md-6">
+                      <input  required="" id="maqbodat_idSelected" name="maqbodat_idSelected" class="w-50 required d-none">
+                      <div class="invalid-feedback">
+                        برجاء اختيار أحد المقبوضات
+                      </div>  
+                    </div>
+                  </div>
+                  
+                  
+
+                 
+                  
+                  
+                  <div class="row">
                     <div class="col-md-6">
                       <div class="form-group bmd-form-group text-right mt-3">
                         <label for="date" class="text-right">التاريخ</label>
@@ -298,8 +320,8 @@
 
                     <div class="col-md-6">
                       <div class="form-group bmd-form-group text-right mt-3">
-                        <label for="id" class="text-right">رقم القيد</label>
-                        <input type="text"  type="text" class="w-50 required" name="id" id="id" >
+                        <label for="Qyed" class="text-right">رقم القيد</label>
+                        <input type="text"  type="text" class="w-50 required" name="Qyed" id="Qyed" >
                         
                       </div>
                     </div>
@@ -351,7 +373,7 @@
 
                   <div class="row">
                     <div class="w-100 border rounded mr-5 ml-5" style="height: 170px; overflow: auto; ">
-                      <table class="table table-sm" style="text-align: right;">
+                      <table class="table table-sm" style="text-align: right;" id="tableOfmadfo3at">
                         <thead style="background: #acb0b4;">
                           <tr>
                             <th scope="col">اسم الحساب</th>
@@ -360,58 +382,9 @@
                             <th scope="col">العملة</th>
                           </tr>
                         </thead>
-                        <tbody>
-                          <tr>
-                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
-                              <input type="text" class="w-100"  style="background: #acb0b4;"  value="صيانة اصلاح">
-                            </td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                          </tr>
-                          <tr>
-                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
-                              <input type="text" class="w-100"  style="background: #acb0b4;"  value="ايجار">
-                            </td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                          </tr>
+                       <tbody>
 
-                          <tr>
-                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
-                              <input type="text" class="w-100"  style="background: #acb0b4;"  value="مياه">
-                            </td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                          </tr>
-
-                          <tr>
-                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
-                              <input type="text" class="w-100"  style="background: #acb0b4;"  value="كهرباء">
-                            </td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                          </tr>
-
-                          <tr>
-                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
-                              <input type="text" class="w-100"  style="background: #acb0b4;" value="اكراميات">
-                            </td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                          </tr>
-
-                          <tr>
-                            <td  style="background: #acb0b4;  padding: 0; margin: 0;"><input type="text" class="w-100"  style="background: #acb0b4;"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                          </tr>
-                        </tbody>
+                       </tbody>
                       </table>
                     </div>
                   </div>
@@ -433,7 +406,7 @@
 
                   <div class="row mt-3">
                     <div class="w-100 border rounded mr-5 ml-5" style="height: 170px; overflow: auto; ">
-                      <table class="table table-sm" style="text-align: right;">
+                      <table class="table table-sm" style="text-align: right;" id="tableOfmaqbodat">
                         <thead style="background: #acb0b4;">
                           <tr>
                             <th scope="col">اسم الحساب</th>
@@ -443,56 +416,11 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
-                              <input type="text" class="w-100"  style="background: #acb0b4;"  value="صيانة اصلاح">
-                            </td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                          </tr>
-                          <tr>
-                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
-                              <input type="text" class="w-100"  style="background: #acb0b4;"  value="ايجار">
-                            </td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                          </tr>
+                         
+                         
 
-                          <tr>
-                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
-                              <input type="text" class="w-100"  style="background: #acb0b4;"  value="مياه">
-                            </td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                          </tr>
 
-                          <tr>
-                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
-                              <input type="text" class="w-100"  style="background: #acb0b4;"  value="كهرباء">
-                            </td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                          </tr>
-
-                          <tr>
-                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
-                              <input type="text" class="w-100"  style="background: #acb0b4;" value="اكراميات">
-                            </td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                          </tr>
-
-                          <tr>
-                            <td  style="background: #acb0b4;  padding: 0; margin: 0;"><input type="text" class="w-100"  style="background: #acb0b4;"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                            <td style=" padding: 0; margin: 0; "><input type="text" class="w-100"></td>
-                          </tr>
+                          
                         </tbody>
                       </table>
                     </div>
@@ -511,10 +439,29 @@
                     </div>
 
                   </div>
+
+
+
+
+                  <div class="mt-3 ml-3 row">
+                    <div class="col-md-7"></div>
+                    <div class="col-md-5">
+                      <div class="form-group bmd-form-group text-left">
+                        <button type="submit">اتمام العملية</button>
+                      </div>
+                    </div>
+
+                  </div>
                 </div>
                 <div class="tab-pane fade" id="view" role="tabpanel" aria-labelledby="view-tab">
-                  
-                  profile
+                  <br>
+                  <div class="list-group">
+               
+                    {% for item in allTransactions %}
+                    <button type="button" class="list-group-item list-group-item-action buttonToShowDoc" id="docShowButton_{{item.id}}">مستند رقم {{item.Doc_Number}}</button>
+                    {% endfor %}
+                  </div>
+
                 </div>
               </div>
             </div>           
@@ -540,6 +487,32 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
 
 <script>
+hideLoader();
+
+
+
+
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+    form.addEventListener('submit', function(event) {
+    if (form.checkValidity() === false) {
+    event.preventDefault();
+    event.stopPropagation();
+    }
+    form.classList.add('was-validated');
+    }, false);
+    });
+    }, false);
+    })();
+
+
+
+
 
 // Treeview Initialization
 $(document).ready(function() {
@@ -549,7 +522,136 @@ $(document).ready(function() {
 
 $(function () { 
   
+  $(".buttonToShowDoc").click(function(event){
+        idOfElement = (event.target.id).slice(14, (event.target.id).length);
+        
+  $.ajax({
+        url: "/{{LANGUAGE_CODE}}/accounting/getTransactionDetails/",
+        type: "post",
+        data: {
+          id:idOfElement
+        } ,
+        headers:{
+                "X-CSRFToken": csrftoken
+        }
+        ,
+        success: function (response) {
+          if(response.Result=="Ok"){
+          
 
+            console.log(response.Data);
+            $('#date').attr('value',response.Data.date);
+            $("#date").val(response.Data.date);
+            
+            
+            $('#Qyed').attr('value',response.Data.Qyed_Number);
+            $("#Qyed").val(response.Data.Qyed_Number);
+
+            
+            $('#docNumber').attr('value',response.Data.Doc_Number);
+            $("#docNumber").val(response.Data.Doc_Number);
+
+            
+            $('#checkNumber').attr('value',response.Data.Check_Number);
+            $("#checkNumber").val(response.Data.Check_Number);
+
+            
+            $('#notes').attr('value',response.Data.Notes);
+            $("#notes").val(response.Data.Notes);
+
+            
+            $('#totalEnter').attr('value',response.Data.madfo3at_Total);
+            $("#totalEnter").val(response.Data.madfo3at_Total);
+
+            
+            $('#totalout').attr('value',response.Data.maqbodat_Total);
+            $("#totalout").val(response.Data.maqbodat_Total);
+
+            
+            $('#date').attr('value',response.Data.date);
+            $("#date").val(response.Data.date);
+
+
+
+
+            
+            newRowContent = `
+                          <tr>
+                            <td style=" padding: 0; margin: 0; "><input type="hidden" id="madfo3at_allLength" name="madfo3at_allLength" value="`+(response.Data.acc_codes_With_details_madfo3at).length+`" class="w-100"></td>
+                          </tr>
+
+                         `;
+            for( i=0;i<(response.Data.acc_codes_With_details_madfo3at).length;i++){
+              
+            $('#madfo3at_idSelected').attr('value',response.Data.madfo3atId);
+            $("#madfo3at_idSelected").val(response.Data.madfo3atId);
+              dataContainer = response.Data.acc_codes_With_details_madfo3at[i];
+              newRowContent += `
+                          <tr>
+                            <td style=" display: none; ">
+                              <input type="hidden" id="madfo3ataccountDivLen_`+i+`" name="madfo3ataccountDivLen_`+i+`"   value="`+dataContainer.accountNumber+`">
+                            </td>
+                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
+                              <input type="text" class="w-100" id="accountId_`+dataContainer.accountNumber+`" name="accountId_`+dataContainer.accountNumber+`"  style="background: #acb0b4;"  value="`+dataContainer.account+`">
+                            </td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" id="accountNote_`+dataContainer.accountNumber+`" name="accountNote_`+dataContainer.accountNumber+`" value="`+dataContainer.note+`" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="number" step="0.000001" lang="ar" id="accountPrice_`+dataContainer.accountNumber+`" name="accountPrice_`+dataContainer.accountNumber+`" value="`+dataContainer.price+`" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" id="accountCurrency_`+dataContainer.accountNumber+`" name="accountCurrency_`+dataContainer.accountNumber+`" value="`+dataContainer.currency+`" class="w-100"></td>
+                          </tr>
+
+                         `;
+            }
+            $("#tableOfmadfo3at tbody").empty();
+            $("#tableOfmadfo3at tbody").append(newRowContent);
+
+
+
+
+
+
+
+            newRowContent = `
+                          <tr>
+                            <td style=" padding: 0; margin: 0; "><input type="hidden" id="maqbodat_allLength" name="maqbodat_allLength" value="`+(response.Data.acc_codes_With_details_maqbodat).length+`" class="w-100"></td>
+                          </tr>
+
+                         `;
+            for( i=0;i<(response.Data.acc_codes_With_details_maqbodat).length;i++){
+              
+            $('#maqbodat_idSelected').attr('value',response.Data.maqbodatId);
+            $("#maqbodat_idSelected").val(response.Data.maqbodatId);
+              dataContainer = response.Data.acc_codes_With_details_maqbodat[i];
+              newRowContent += `
+                          <tr>
+                            <td style=" display: none; ">
+                              <input type="hidden" id="maqbodataccountDivLen_`+i+`" name="maqbodataccountDivLen_`+i+`"   value="`+dataContainer.accountNumber+`">
+                            </td>
+                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
+                              <input type="text" class="w-100" id="accountId_`+dataContainer.accountNumber+`" name="accountId_`+dataContainer.accountNumber+`"  style="background: #acb0b4;"  value="`+dataContainer.account+`">
+                            </td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" id="accountNote_`+dataContainer.accountNumber+`" name="accountNote_`+dataContainer.accountNumber+`" value="`+dataContainer.note+`" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="number" step="0.000001" lang="ar" id="accountPrice_`+dataContainer.accountNumber+`" name="accountPrice_`+dataContainer.accountNumber+`" value="`+dataContainer.price+`" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" id="accountCurrency_`+dataContainer.accountNumber+`" name="accountCurrency_`+dataContainer.accountNumber+`" value="`+dataContainer.currency+`" class="w-100"></td>
+                          </tr>
+
+                         `;
+            }
+            $("#tableOfmaqbodat tbody").empty();
+            $("#tableOfmaqbodat tbody").append(newRowContent);
+
+            $('[href="#enter"]').tab('show');
+          }
+          
+           // You will get response from your PHP page (what you echo or print)
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+           console.log(textStatus, errorThrown);
+        }
+    });
+
+
+
+    }); 
 
 
 
@@ -565,8 +667,7 @@ $(function () {
       'data' : function (node) {
         return { 
           'id' : node.id,
-          'Normal':node.id === '#' ?
-          '2' : '#'
+          'treeType':0
          };
       }
     }
@@ -598,7 +699,71 @@ $(function () {
 
 
 $('#maqbodat_tree').on("changed.jstree", function (e, data) {
-  console.log(data.selected);
+  console.log(data.selected[0].slice(7, (data.selected[0]).length));
+
+  
+  
+            $('#maqbodat_idSelected').attr('value',"");
+            $("#maqbodat_idSelected").val("");
+  
+  $.ajax({
+        url: "/{{LANGUAGE_CODE}}/accounting/getAllElementsRelatedToTreeElementAndType/",
+        type: "post",
+        data: {
+          id:data.selected[0].slice(7, (data.selected[0]).length),
+          Type:1
+        } ,
+        headers:{
+                "X-CSRFToken": csrftoken
+        }
+        ,
+        success: function (response) {
+          if(response.Result=="Ok"){
+          
+
+            
+            newRowContent = `
+                          <tr>
+                            <td style=" padding: 0; margin: 0; "><input type="hidden" id="maqbodat_allLength" name="maqbodat_allLength" value="`+response.length+`" class="w-100"></td>
+                          </tr>
+
+                         `;
+            for( i=0;i<response.length;i++){
+              
+            $('#maqbodat_idSelected').attr('value',data.selected[0].slice(7, (data.selected[0]).length));
+            $("#maqbodat_idSelected").val(data.selected[0].slice(7, (data.selected[0]).length));
+              dataContainer = response.output[i];
+              newRowContent += `
+                          <tr>
+                            <td style=" display: none; ">
+                              <input type="hidden" id="maqbodataccountDivLen_`+i+`"  name="maqbodataccountDivLen_`+i+`"  value="`+dataContainer.accountNumber+`">
+                            </td>
+                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
+                              <input type="text" class="w-100" id="accountId_`+dataContainer.accountNumber+`" name="accountId_`+dataContainer.accountNumber+`"  style="background: #acb0b4;"  value="`+dataContainer.text+`">
+                            </td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" id="accountNote_`+dataContainer.accountNumber+`"  name="accountNote_`+dataContainer.accountNumber+`" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="number" step="0.000001"  id="accountPrice_`+dataContainer.accountNumber+`" name="accountPrice_`+dataContainer.accountNumber+`" value="0" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" id="accountCurrency_`+dataContainer.accountNumber+`" name="accountCurrency_`+dataContainer.accountNumber+`" class="w-100"></td>
+                          </tr>
+
+                         `;
+            }
+            $("#tableOfmaqbodat tbody").empty();
+            $("#tableOfmaqbodat tbody").append(newRowContent);
+            console.log(response.output);
+            console.log(response.length);
+            console.log("Ahmed");
+          }
+          
+           // You will get response from your PHP page (what you echo or print)
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+           console.log(textStatus, errorThrown);
+        }
+    });
+
+
+    
 });
 
 
@@ -618,8 +783,7 @@ $('#madfo3at_tree').jstree({
       'data' : function (node) {
         return { 
           'id' : node.id,
-          'Normal':node.id === '#' ?
-          '1' : '#'
+          'treeType':1
          };
       }
     }
@@ -651,7 +815,66 @@ $('#madfo3at_tree').jstree({
 
 
 $('#madfo3at_tree').on("changed.jstree", function (e, data) {
-  console.log(data.selected);
+  console.log(data.selected[0].slice(7, (data.selected[0]).length));
+  
+  $('#madfo3at_idSelected').attr('value',"");
+  $("#madfo3at_idSelected").val("");
+  
+  $.ajax({
+        url: "/{{LANGUAGE_CODE}}/accounting/getAllElementsRelatedToTreeElementAndType/",
+        type: "post",
+        data: {
+          id:data.selected[0].slice(7, (data.selected[0]).length),
+          Type:1
+        } ,
+        headers:{
+                "X-CSRFToken": csrftoken
+        }
+        ,
+        success: function (response) {
+          if(response.Result=="Ok"){
+          
+            newRowContent = `
+                          <tr>
+                            <td style=" padding: 0; margin: 0; "><input type="hidden" id="madfo3at_allLength" name="madfo3at_allLength" value="`+response.length+`" class="w-100"></td>
+                          </tr>
+
+                         `;
+            for( i=0;i<response.length;i++){
+              
+            $('#madfo3at_idSelected').attr('value',data.selected[0].slice(7, (data.selected[0]).length));
+            $("#madfo3at_idSelected").val(data.selected[0].slice(7, (data.selected[0]).length));
+              dataContainer = response.output[i];
+              newRowContent += `
+                          <tr>
+                            <td style=" display: none; ">
+                              <input type="hidden" id="madfo3ataccountDivLen_`+i+`" name="madfo3ataccountDivLen_`+i+`"   value="`+dataContainer.accountNumber+`">
+                            </td>
+                            <td  style="background: #acb0b4;  padding: 0; margin: 0;">
+                              <input type="text" class="w-100" id="accountId_`+dataContainer.accountNumber+`" name="accountId_`+dataContainer.accountNumber+`"  style="background: #acb0b4;"  value="`+dataContainer.text+`">
+                            </td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" id="accountNote_`+dataContainer.accountNumber+`" name="accountNote_`+dataContainer.accountNumber+`" value="" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="number" step="0.000001" lang="ar" id="accountPrice_`+dataContainer.accountNumber+`" name="accountPrice_`+dataContainer.accountNumber+`" value="0" class="w-100"></td>
+                            <td style=" padding: 0; margin: 0; "><input type="text" id="accountCurrency_`+dataContainer.accountNumber+`" name="accountCurrency_`+dataContainer.accountNumber+`" class="w-100"></td>
+                          </tr>
+
+                         `;
+            }
+            $("#tableOfmadfo3at tbody").empty();
+            $("#tableOfmadfo3at tbody").append(newRowContent);
+            console.log(response.output);
+            console.log(response.length);
+            console.log("Ahmed");
+          }
+          
+           // You will get response from your PHP page (what you echo or print)
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+           console.log(textStatus, errorThrown);
+        }
+    });
+
+
 });
 
   });
